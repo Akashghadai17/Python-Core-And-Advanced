@@ -28,10 +28,11 @@ Output
 ----------------
 import random
 l1=[8,12,9,15,6]
-print(random.shuffle(l1))
-Output
--------
-None
+random.shuffle(l1)
+print(l1)
+output
+------
+[12, 6, 9, 15, 8]
 
 All random
 -----------
