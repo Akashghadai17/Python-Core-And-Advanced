@@ -31,6 +31,8 @@ n=eval(input("Enter the value"))
 s=math.sqrt(n)
 print(f"Square root value : {s}")
 
+Note- eval() ->accept all type value(float/int..)
+
 Output
 ------
 Enter the value 2
