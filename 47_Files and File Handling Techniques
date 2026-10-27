@@ -24,13 +24,174 @@ ii)CSV file
 - Everything separated with comma so it is called CSV file.
 - CSV file= filename.csv
 
-iii)Excel File
+iii)Log File
 ---------------
-- Excel file = filename.xlsx
+- .log 
 
 iv)json file
 -------------
 - Json = filename.json
 - Json store data in form of key,value = Dictionary format.
 - In real time if you want to move data from one location to anathor internally they use json.
+
+2.Binary File
+-------------
+i)images- .jpg, .png
+ii)Video- .mp4
+iii)Audio- .mp3
+iv)Pdfs- .pdf
+v)Excel Files- .xlxs
+vi)Bigdatafiles- .parquet
+
+-> CSV is good for small/simple data
+-> Parquet is best for huge analytical data
+
+Communications Between Python and Files
+Basic File Operations
+1.	Open File 
+2.	Perform Operations (e.g., read, write) 
+3.	Close File 
+
+Step 1: Open File
+-----------------
+•	Function: open(filename, mode) 
+•	Mode: Defines the purpose of opening the file. 
+o	r -> Read 
+o	w -> Write 
+o	a -> Append 
+•	Note: If no mode is provided, it defaults to read mode. 
+
+Step 2: Perform Operations (Read or Write)
+-----------------------------------------
+•	To store data: Use the write() function. 
+•	To collect data: Use the following functions: 
+1.	read() -> Reads data in string format. 
+2.	readlines() -> Reads data in list format. 
+3.	readline() -> Reads data line by line. 
+
+Step 3: Close File
+------------------
+•	Function: close()
+
+Python File Handling Examples
+------------------------------
+1. W.A.P. to Create a File and Store Data
+-----------------------------------------
+f = open('demo2.txt', 'w')
+f.write('Core Python')
+f.write('\nAdv Python')
+f.write('\nDjango')
+f.close()
+```[cite: 2]
+
+Output
+------
+Core Python
+Adv Python
+Django
+
+2. W.A.P. to Add Data into a File
+----------------------------------
+- There are two ways to handle adding data depending on the mode used: 
+1. Delete old data and store new data (using 'w' mode)
+------------------------------------------------------
+f = open('demo1.txt', 'w')
+f.write('\nUI')
+f.write('\nDjango')
+f.close()
+```[cite: 2]
+Output
+------
+UI
+Django
+
+2. Store new data along with old data (using 'a' mode for append)
+-----------------------------------------------------------------
+f = open('demo2.txt', 'a')
+f.write('\nUI')
+f.write('\nDjango')
+f.close()
+```[cite: 2]
+
+Output
+------
+Core Python
+Adv Python
+Django
+UI
+Django
+
+3. W.A.P. to Read Data from a File
+----------------------------------
+- Data can be retrieved in different formats using specific read functions: 
+  1. Get data in string format (read())
+-------------------------------------
+f = open('demo2.txt', 'r')
+data = f.read()
+print(data)
+f.close()
+```[cite: 2]
+
+output
+------
+'Core Python\nAdv Python\nDjango\nUI\nDjango'
+
+  2. Get data in list format (readlines())
+------------------------------------------
+f = open('demo2.txt', 'r')
+data = f.readlines()
+print(data)
+f.close()
+```[cite: 2]
+
+Output
+------
+['Core Python\n', 'Adv Python\n', 'Django\n', 'UI\n', 'Django']
+
+4. Read Filename, Line Number, and Display Data
+-----------------------------------------------
+filename = input('Enter file Name : ')
+lineno = int(input('Enter line number : '))
+f = open(filename)
+data = f.readlines()
+print(data[lineno - 1])
+f.close()
+```[cite: 2]
+
+Output
+------
+Adv Python
+
+5. Read a Word from User and Check if it is Available in a File
+---------------------------------------------------------------
+f = open('demo3.txt')
+data = f.read()
+word = input('Enter your word : ')
+if word in data:
+    print('Available')
+else:
+    print('Not Available')
+```[cite: 3]
+
+Output
+------
+Enter your word : Python
+Available
+
+6. W.A.P. to Handle Missing Files (FileNotFoundError)
+-----------------------------------------------------
+try:
+    f = open('Test2.py')
+except FileNotFoundError:
+    print('Sorry.. ! File not Available')
+else:
+    data = f.read()
+    print(data)
+    f.close()
+```[cite: 3]
+
+Output
+------
+Sorry.. ! File not Available
+
 
