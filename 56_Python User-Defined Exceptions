@@ -1,0 +1,51 @@
+Python User-Defined Exceptions — Simple Notes
+----------------------------------------------
+1. Definition
+-------------
+User-defined exception: A user-defined exception is an error created by the programmer to handle a specific situation in a program.
+- Every custom exception class should inherit from the built-in Exception class.
+- Use raise to generate an exception.
+- Use try-except to handle the exception.
+
+2. Syntax
+----------
+class InvalidAgeError(Exception):
+    def __init__(self, msg):
+        self.msg = msg
+Explanation:
+- class InvalidAgeError(Exception): Creates a custom exception class.
+- __init__(self, msg): Constructor that receives an error message.
+- self.msg = msg: Stores the error message.
+
+3. Example 1: Create InvalidAgeError class
+------------------------------------------
+class InvalidAgeError(Exception):
+    def __init__(self, msg):
+        self.msg = msg
+
+4. Example 2: Create SmallAgeError class
+----------------------------------------
+class SmallAgeError(Exception):
+    def __init__(self, msg):
+        self.msg = msg
+
+5. Program: Check a person's age
+Question: Write a Python program to read a person's age. If the age is less than zero, raise an error. Otherwise, display the application processing message.
+
+class InvalidAgeError(Exception):
+    def __init__(self, msg):
+        self.msg = msg
+try:
+    age = int(input("Enter your age: "))
+
+    if age < 0:
+        raise InvalidAgeError("Age should be a positive number")
+    else:
+        print("Application is Processed")
+except InvalidAgeError as e:
+   print(e)
+
+Output
+------
+Enter your age: -1
+Age should be a positive number
